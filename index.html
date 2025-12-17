@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARITHA SEMICONDUCTORS & AI TECHNOLOGIES</title>
+
+  <style>
+    body { 
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      background: #f4f6f8; 
+    }
+    header { background: #0d6efd; color: #fff; padding: 20px; text-align: center; }
+    header h1 { margin:0; font-size:28px;}
+    header p { margin:5px 0 0; font-size:14px;}
+    .menu { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:20px;}
+    .menu button { padding:12px 20px; border:none; border-radius:6px; background:#0d6efd; color:#fff; cursor:pointer; font-size:16px;}
+    .menu button:hover { background:#084298;}
+    .page { display:none; padding:30px; background:#fff; margin:20px; border-radius:8px;}
+    .back-btn { margin-bottom:20px; background:#6c757d; color:#fff; padding:8px 12px; border:none; border-radius:6px; cursor:pointer;}
+    h2 { color:#0d6efd; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
+    .card, .certificate-item { background:#f9fafb; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .certificate-controls { margin-top:20px; }
+
+    /* ✅ ONLY ADDITION — COLOR */
+    .role-orange {
+      color: orange;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>HARITHA SEMICONDUCTORS & AI TECHNOLOGIES</h1>
+  <p>Innovating Chips • Empowering AI • Building the Future</p>
+</header>
+
+<div class="menu" id="mainMenu">
+  <button onclick="openPage('home')">Home</button>
+  <button onclick="openPage('about')">About</button>
+  <button onclick="openPage('courses')">Courses</button>
+  <button onclick="openPage('products')">Products</button>
+  <button onclick="openPage('certificates')">Certificates</button>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page" style="display:block">
+  <button class="back-btn" onclick="goBack()" style="display:none" id="homeBackBtn">⬅ Back</button>
+
+  <h2>Home</h2>
+  <p>
+    Welcome to Haritha Semiconductors & AI Technologies.
+    We provide professional courses, products, and certifications
+    designed for real-world industry needs.
+  </p>
+
+  <h2>Leadership & Management</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 class="role-orange">Founder & Managing Director</h3>
+      <p><strong>N. Anvesh Raju</strong></p>
+      <p>
+        Visionary founder driving innovation in Semiconductor
+        Technology and Artificial Intelligence education.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="role-orange">Co-Founder & Operations Director</h3>
+      <p><strong>N. Gopichand</strong></p>
+      <p>
+        Oversees company operations, planning, and execution
+        ensuring sustainable growth.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="role-orange">Marketing Manager</h3>
+      <p><strong>A. Bhuvan</strong></p>
+      <p>
+        Leads marketing strategy, branding, and outreach
+        to expand organizational reach.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="role-orange">Financial Department</h3>
+      <p><strong>N. Uday Kiran</strong></p>
+      <p>
+        Handles financial planning, budgeting, and compliance
+        to maintain financial stability.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<!-- ABOUT -->
+<div id="about" class="page">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <h2>About Us</h2>
+
+  <p>
+    <strong>HARITHA SEMICONDUCTORS & AI TECHNOLOGIES</strong><br><br>
+
+    Haritha Semiconductors & AI Technologies is a forward-looking technology company dedicated to advancing education, innovation, and skill development in Semiconductor Engineering and Artificial Intelligence. We aim to bridge the gap between academic knowledge and real-world industry requirements by delivering practical learning solutions and technology-driven products.
+  </p>
+
+  <p>
+    Our organization focuses on industry-oriented training programs, AI-based educational resources, and technology solutions that empower students, professionals, and institutions to succeed in the rapidly evolving tech landscape. We believe in building strong technical foundations while encouraging creativity, problem-solving, and innovation.
+  </p>
+
+  <p>
+    With a commitment to quality, integrity, and continuous improvement, Haritha Semiconductors & AI Technologies strives to nurture future engineers and technology leaders. Through our courses, products, and certifications, we work towards creating a skilled workforce capable of contributing to the growth of India’s semiconductor and AI ecosystem.
+  </p>
+
+  <h3>🎯 Our Vision</h3>
+  <p>To become a trusted leader in semiconductor and AI education by empowering learners with industry-ready skills and innovative technological knowledge.</p>
+
+  <h3>🚀 Our Mission</h3>
+  <ul>
+    <li>To provide practical, hands-on training in semiconductor and AI technologies</li>
+    <li>To deliver high-quality educational products and certifications</li>
+    <li>To support students and professionals in achieving career excellence</li>
+  </ul>
+</div>
+
+
+<!-- COURSES -->
+<div id="courses" class="page">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <h2>Courses</h2>
+  <div class="grid">
+    <div class="card">Java</div>
+    <div class="card">Python</div>
+    <div class="card">Web Development</div>
+    <div class="card">AI Foundation</div>
+    <div class="card">Prompt Engineering</div>
+    <div class="card">VLSI</div>               <!-- VLSI course -->
+  <div class="card">Troubleshooting</div> 
+    <div class="card">DBMS</div>
+    <div class="card">Cyber Security</div>
+  </div>
+</div>
+<!-- PRODUCTS -->
+<div id="products" class="page">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <h2>Products</h2>
+
+  <div class="grid">
+    <div class="card">
+      <strong>AI for Smart Students</strong><br><br>
+
+      <a href="https://www.flipkart.com/ai-smart-students/p/itm781256eff0a17" target="_blank">
+        Flipkart
+      </a><br>
+
+      <a href="https://www.barnesandnoble.com/w/ai-for-smart-students-anvesh-raju-nallamekala/1148379445" target="_blank">
+        Barnes & Noble
+      </a><br>
+
+      <a href="https://www.readings.com.au/product/9788198771957/ai-for-smart-students--anvesh-raju-nallamekala--2025--9788198771957" target="_blank">
+        Readings
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATES -->
+<div id="certificates" class="page">
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  <h2>Certificates</h2>
+
+  <div id="adminLoginBox">
+    <input type="password" id="adminPass" placeholder="Enter Admin Password" />
+    <button onclick="adminLogin()">Login as Admin</button>
+  </div>
+
+  <div class="certificate-controls" id="adminControls" style="display:none">
+    <input type="file" id="certificateFile" />
+    <button onclick="uploadCertificate()">Upload Certificate</button>
+  </div>
+
+  <div id="certificateList"></div>
+</div>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCQNQU4vYtmghh52NAVI-SFHV7QRmowSC4",
+    authDomain: "haritha-semiconductors.firebaseapp.com",
+    projectId: "haritha-semiconductors",
+    storageBucket: "haritha-semiconductors.appspot.com",
+    messagingSenderId: "315759495618",
+    appId: "1:315759495618:web:3a94ce1368c906bf806e5b"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const storage = firebase.storage();
+  const db = firebase.firestore();
+
+  const ADMIN_PASSWORD = "gopi123"; 
+  let isAdmin = false;A
+
+  function adminLogin() {
+    const pass = document.getElementById("adminPass").value;
+    if(pass === ADMIN_PASSWORD){
+      isAdmin = true;
+      document.getElementById("adminControls").style.display = "block";
+      document.getElementById("adminLoginBox").style.display = "none";
+      loadCertificates();
+    } else {
+      alert("Wrong password");
+    }
+  }
+
+  function uploadCertificate() {
+    const fileInput = document.getElementById('certificateFile');
+    if(fileInput.files.length === 0) return alert("Select file");
+
+    const file = fileInput.files[0];
+    const ref = storage.ref("certificates/"+file.name);
+    ref.put(file).then(()=>{
+      ref.getDownloadURL().then(url=>{
+        db.collection("certificates").add({
+          name:file.name,
+          url:url,
+          time:firebase.firestore.FieldValue.serverTimestamp()
+        });
+        fileInput.value = '';
+        loadCertificates();
+      });
+    });
+  }
+
+  function deleteCertificate(id){
+    if(!isAdmin) return alert("Admin only");
+    db.collection("certificates").doc(id).delete().then(loadCertificates);
+  }
+
+  function loadCertificates(){
+    const list = document.getElementById("certificateList");
+    list.innerHTML = "";
+    db.collection("certificates").orderBy("time","desc").get()
+    .then(snapshot=>{
+      snapshot.forEach(doc=>{
+        const data = doc.data();
+        const div = document.createElement("div");
+        div.className = "certificate-item";
+        div.innerHTML = `
+          <span>${data.name}</span>
+          <span>
+            <a href="${data.url}" download>Download</a>
+            ${isAdmin ? `<button onclick='deleteCertificate("${doc.id}")'>Delete</button>` : ""}
+          </span>`;
+        list.appendChild(div);
+      });
+    });
+  }
+
+  function openPage(pageId){
+    document.querySelectorAll('.page').forEach(p => p.style.display='none');
+    document.getElementById(pageId).style.display='block';
+    document.getElementById('homeBackBtn').style.display = pageId === 'home' ? 'none' : 'block';
+    if(pageId==="certificates") loadCertificates();
+  }
+
+  function goBack(){
+    document.querySelectorAll('.page').forEach(p => p.style.display='none');
+    document.getElementById('home').style.display='block';
+    document.getElementById('homeBackBtn').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
